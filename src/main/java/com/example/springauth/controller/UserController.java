@@ -1,7 +1,9 @@
 package com.example.springauth.controller;
 
+import com.example.springauth.dto.LoginRequestDto;
 import com.example.springauth.dto.SignupRequestDto;
 import com.example.springauth.service.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,5 +34,16 @@ public class UserController {
         userService.signup(requestDto);
 
         return "redirect:/api/user/login-page";
+    }
+
+    @PostMapping("/user/login")
+    public String login(LoginRequestDto loginRequestDto, HttpServletResponse response) {
+        try {
+            userService.login(loginRequestDto, response);
+        } catch (Exception e) {
+            return "redirect:/api/login/login-page?error";
+        }
+
+        return "redirect:/";
     }
 }
