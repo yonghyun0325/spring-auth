@@ -1,4 +1,4 @@
-package com.example.springauth.jwt;
+package com.example.springauth.filter;
 
 import com.example.springauth.entity.User;
 import com.example.springauth.jwt.JwtUtil;
