@@ -41,7 +41,7 @@ public class UserController {
         try {
             userService.login(loginRequestDto, response);
         } catch (Exception e) {
-            return "redirect:/api/login/login-page?error";
+            return "redirect:/api/user/login-page?error";
         }
 
         return "redirect:/";
